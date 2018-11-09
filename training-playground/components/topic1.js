@@ -1,31 +1,21 @@
 import React from "react";
-import {View, StyleSheet, Text} from "react-native";
+import {View, StyleSheet, Image} from "react-native";
 
 const styles = StyleSheet.create({
     container:{
-        paddingVertical:30,
+        flex:1        
     },
-    box1:{
-        width:200,
-        height:200,
-        backgroundColor:"blue",
-        borderRadius:10
+    image1:{
+        position:"absolute",
+        top:50,
+        left:50,
+        width:100,
+        height:100
     },
-    box2:{
-        width:200,
-        height:200,
-        backgroundColor:"red",
-        borderRadius:10
-    },
-    text:{
-        color:"white",
-        fontSize:20,
-        fontWeight:"bold",
-        textAlign:"center",
-        textAlignVertical:"center"
-    },
-    textNested:{
-        color:"orange"
+    image2:{
+        position:"absolute",
+        top:210,
+        left:50
     }
 })
 
@@ -35,10 +25,16 @@ export default class Exercise extends React.Component{
 
     render(){
         return(
-            <View style={styles.container}>
-                <View style={styles.box1}><Text style={styles.text}>I'm the <Text style={styles.textNested}>Box 1</Text></Text></View>
-                <View style={styles.box2}><Text style={styles.text}>I'm the <Text style={styles.textNested}>Box 2</Text></Text></View>
-            </View>
+        <View style={styles.container}>
+            <Image
+                style={styles.image1}
+                source={{uri: 'http://moziru.com/images/pixel-clipart-mario-mushroom-5.jpg'}}
+            />
+            <Image
+                style={styles.image2}
+                source={require('../images/mario.png')}
+            />
+        </View>
        )
     }
 
