@@ -1,11 +1,11 @@
 import React from 'react';
-import Article from "../training-playground/components/wireframe/article";
+import Input from "../training-playground/components/topic3";
 
 export default class App extends React.Component {
 
   render() {
     return (
-      <Article/>
+      <Input/>
     );
   }
 }
