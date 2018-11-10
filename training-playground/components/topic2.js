@@ -7,9 +7,9 @@ export default class Exercise extends React.Component{
     render(){
         return(
             <View style={styles.container}>
-                <View style={styles.box1}></View>
-                <View style={styles.box2}></View>
-                <View style={styles.box3}></View>
+                <View style={[styles.box1,styles.bord]}></View>
+                <View style={[styles.box2,styles.bord]}></View>
+                <View style={[styles.box3,styles.bord]}></View>
             </View>
         )
     }
