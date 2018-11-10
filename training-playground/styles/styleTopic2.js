@@ -3,13 +3,13 @@ import {StyleSheet} from "react-native";
 const styles = StyleSheet.create({
     container:{
         flex:1,
+        justifyContent:"space-between",
         backgroundColor:"#7fbfbf",
-        paddingTop:40,
-        paddingLeft:20
+        padding:10
     },
     box1:{
-        width:50,
-        height:50,
+        width:100,
+        height:100,
         backgroundColor:"#e50202",
         marginBottom:10
     },
@@ -22,14 +22,18 @@ const styles = StyleSheet.create({
     },
     box3:{
         marginBottom:10,
-        width:150,
-        height:150,
+        width:100,
+        height:100,
         backgroundColor:"#ffffff",
         
     },
-    bord:{
-        borderRadius:15
+    row:{
+        flexDirection:"row"
+    },
+    col:{
+        flexDirection:"column"
     }
+
 })
 
 export default styles;
