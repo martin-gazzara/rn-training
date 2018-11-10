@@ -1,9 +1,9 @@
-import {StyleSheet,} from "react-native";
+import {StyleSheet,Platform} from "react-native";
 
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor:"#7fbfbf",
+        backgroundColor: Platform.OS === "ios" ? "grey" : "green",
         justifyContent:"space-between",
     },
     first:{
