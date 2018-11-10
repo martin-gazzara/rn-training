@@ -1,32 +1,32 @@
-import {StyleSheet,Dimensions} from "react-native";
-
-const aux = Dimensions.get("screen");
+import {StyleSheet,} from "react-native";
 
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        justifyContent:"space-between",
         backgroundColor:"#7fbfbf",
-        padding:100
+        justifyContent:"space-between",
     },
     first:{
-        width:(aux.width*1/2),
-        height:(aux.width*1/2),
+        width:100,
+        height:100,
+        alignSelf:"flex-start",
         backgroundColor:"#e50202",
         marginBottom:10
     },
     second:{
         marginBottom:10,
-        width:(aux.width*3/10),
-        height:(aux.width*3/10),
-        backgroundColor:"#2b0057",
+        width:100,
+        height:100,
+        alignSelf:"center",
+        backgroundColor:"#ffffff",
         
     },
     third:{
         marginBottom:10,
-        width:(aux.width*1/5),
-        height:(aux.width*1/5),
-        backgroundColor:"#ffffff",
+        width:100,
+        height:100,
+        alignSelf:"flex-end",
+        backgroundColor:"#2b0057",
         
     }
 })
