@@ -1,48 +1,35 @@
 import React from "react";
-import {View,TextInput,Text,TouchableOpacity} from "react-native";
+import {View,TextInput,Text,TouchableOpacity,Alert} from "react-native";
 import styles from "../styles/styleTopic3"
 
-export default class AppTextInput extends React.Component{
+export default class Button extends React.Component{
 
     constructor(props){
         super(props);
         this.state = {
-            input:"",
-            type:(props.type === undefined ? "text" : props.type)
+            type:(props.type === undefined ? "primary" : props.type),
+            disable:props.disable
         }
 
-        this.HandleInput = this.HandleInput.bind(this);
-        this.ClearInput = this.ClearInput.bind(this);
-    }
-
-    HandleInput(text){
-        this.setState({input:text});
-    }
-
-    ClearInput(){
-        this.setState({input:""});
     }
 
     render(){
         return(
-            <TextInput onChangeText={this.HandleInput} secureTextEntry={this.state.type === "password" ? true : false} underlineColorAndroid="transparent" style={styles.textInput}></TextInput>
+            <TouchableOpacity activeOpacity={!this.state.disable ? 0.2 : 1} onPress={ () => {if (!this.state.disable){Alert.alert(this.state.type + " button")} } }>
+                <View style={ !this.state.disable ? 
+                    this.state.type === "primary" ? [styles.button,styles.primary] : [styles.button,styles.secondary] 
+                    : 
+                    [styles.button,styles.disable] }>
+
+                    <Text style={ !this.state.disable ?
+                        this.state.type === "primary" ? styles.textPrimary : styles.textSecondary
+                        :
+                        styles.textDisable }>{this.props.value}</Text>
+
+                </View>
+            </TouchableOpacity>
         )
     }
 
 
 }
-
-/*
-
-secureTextEntry="true" 
-
-<View style={styles.container}>
-                <Text>Username:</Text>
-                <TextInput onChangeText={this.HandleInput} value={this.state.input} underlineColorAndroid="transparent" style={styles.textInput}></TextInput>
-                <TouchableOpacity style={styles.clearButton} onPress={this.ClearInput}>
-                    <Text style={{textAlign:"center"}}>Clear</Text>
-                </TouchableOpacity>
-                <Text>You are writing this:</Text>
-                <Text>{this.state.input}</Text>
-            </View>
-*/
