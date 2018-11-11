@@ -1,13 +1,14 @@
 import React from "react";
 import {View,Text} from "react-native";
-import {createStackNavigator, createBottomTabNavigator} from "react-navigation";
+import { Ionicons } from "@expo/vector-icons"
+import {createStackNavigator,createBottomTabNavigator} from "react-navigation";
 
-class HomeScreen extends React.Component{
+class FormScreen extends React.Component{
 
     render(){
         return(
-            <View style={{Flex:1,backgroundColor:"#ccc",justifyContent:"center"}}>
-                <Text style={{color:"#fff"}}>Home screen</Text>
+            <View style={{flex:1,backgroundColor:"#ccc",justifyContent:"center",justifyContent:"center",alignItems:"center"}}>
+                <Text style={{color:"#000"}}>This is the Form screen</Text>
             </View>
         )
     }
@@ -15,31 +16,49 @@ class HomeScreen extends React.Component{
 
 }
 
-class SecondScreen extends React.Component{
+class OtherScreen extends React.Component{
 
     render(){
         return(
-            <View style={{Flex:1,backgroundColor:"#cc0000",justifyContent:"center"}}>
-                <Text style={{color:"#fff"}}>This is the second screen</Text>
+            <View style={{flex:1,backgroundColor:"#ccc",justifyContent:"center",justifyContent:"center",alignItems:"center"}}>
+                <Text style={{color:"#fff"}}>This is the Other screen</Text>
             </View>
         )
     }
 }
 
-const HomeStack = createStackNavigator({
-    Home:HomeScreen
-});
+const FormStack = createStackNavigator({
+    Form:{screen: FormScreen},
+})
 
-const SecondStack = createStackNavigator({
-    Second:SecondScreen
+
+const OtherStack = createStackNavigator({
+    Other:{screen: OtherScreen}
 })
 
 const RootStack = createBottomTabNavigator({
-    Home:HomeStack,
-    Second:SecondStack
-})
 
+    Form:{screen: FormStack},
+    Other:{screen: OtherStack}
+
+},
+{
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, horizontal, tintColor }) => {
+        const { routeName } = navigation.state;
+        switch (routeName){
+            case "Form":
+                return <Ionicons name="md-apps" size={horizontal ? 20 : 25} color={tintColor} />;
+            case "Other":
+                return <Ionicons name="md-build" size={horizontal ? 20 : 25} color={tintColor} />;    
+        }
+      },
+    }),
+    tabBarOptions: {
+      activeTintColor: 'tomato',
+      inactiveTintColor: 'gray',
+    },
+  }
+);
 
 export default RootStack;
-
-
