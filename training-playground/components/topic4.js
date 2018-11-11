@@ -1,5 +1,5 @@
 import React from "react";
-import {View,Text} from "react-native";
+import {View,Text,Button} from "react-native";
 import { Ionicons } from "@expo/vector-icons"
 import {createStackNavigator,createBottomTabNavigator} from "react-navigation";
 
@@ -9,12 +9,40 @@ class FormScreen extends React.Component{
         return(
             <View style={{flex:1,backgroundColor:"#ccc",justifyContent:"center",justifyContent:"center",alignItems:"center"}}>
                 <Text style={{color:"#000"}}>This is the Form screen</Text>
+                <Button title="Go to Form 2" onPress={() => this.props.navigation.navigate("Form2")}/>
             </View>
         )
     }
 
+}
+
+class FormScreen2 extends React.Component{
+
+    render(){
+        return(
+            <View style={{flex:1,backgroundColor:"#ccc",justifyContent:"center",justifyContent:"center",alignItems:"center"}}>
+                <Text style={{color:"#000"}}>This is the Form 2 screen</Text>
+                <Button title="Go to Form 3" onPress={() => this.props.navigation.navigate("Form3")}/>
+            </View>
+        )
+    }
 
 }
+
+class FormScreen3 extends React.Component{
+
+    render(){
+        return(
+            <View style={{flex:1,backgroundColor:"#ccc",justifyContent:"center",justifyContent:"center",alignItems:"center"}}>
+                <Text style={{color:"#000"}}>This is the Form 3 screen</Text>
+                <Button title="Finished" onPress={() => this.props.navigation.popToTop()}/>
+            </View>
+        )
+    }
+
+}
+
+
 
 class OtherScreen extends React.Component{
 
@@ -29,6 +57,8 @@ class OtherScreen extends React.Component{
 
 const FormStack = createStackNavigator({
     Form:{screen: FormScreen},
+    Form2:{screen: FormScreen2},
+    Form3:{screen: FormScreen3}
 })
 
 
